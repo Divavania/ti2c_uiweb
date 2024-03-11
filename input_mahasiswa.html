@@ -102,9 +102,7 @@
                 <label for="nim">NIM</label><br>
                 <input type="number" id="nim" name="nim"><br>
                 <label for="name">Nama</label><br>
-                <input type="text" id="name" name="name"><br>
-                <label for="kelas">Kelas</label><br>
-                <input type="text" id="kelas" name="kelas"><br><br>
+                <input type="text" id="name" name="name"><br><br>
                 <button type="button" onclick="saveStudent()">Save</button>
             </form>
             
@@ -114,7 +112,6 @@
                   <tr>
                     <th>NIM</th>
                     <th>Nama</th>
-                    <th>Kelas</th>
                   </tr>
                 </thead>
                 <tbody ></tbody>
@@ -130,7 +127,6 @@
             function Student(nim,name,kelas) {
                 this.nim = nim;
                 this.name = name;
-                this.kelas = kelas;
             }
 
             // Fungsi simpan data mahasiswa
@@ -139,10 +135,9 @@
                 var studentForm = document.getElementById("studentForm");
                 var nim = document.getElementById("nim").value;
                 var name = document.getElementById("name").value;
-                var kelas = document.getElementById("kelas").value;
                 
                 // Buat student object baru
-                var student = new Student(nim,name,kelas);
+                var student = new Student(nim,name);
                 arrStudent.push(student);
                 // Reset Form
                 studentForm.reset();
@@ -167,13 +162,7 @@
                 // buat kolom value nama
                 var tdNama = document.createElement("td");
                 tdNama.textContent = student.name;
-                tr.appendChild(tdNama);
-
-                // buat kolom value kelas
-                var tdKelas = document.createElement("td");
-                tdKelas.textContent = student.kelas;
-                tr.appendChild(tdKelas);
-                
+                tr.appendChild(tdNama);                
 
                 tbody.appendChild(tr);
             }
